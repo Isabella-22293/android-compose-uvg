@@ -8,15 +8,15 @@ import androidx.lifecycle.viewModelScope
 import com.zezzi.eventzezziapp.data.repository.MealsRepository
 import kotlinx.coroutines.launch
 
-class MealsCategoriesViewModel(private val repository: MealsRepository = MealsRepository()): ViewModel() {
-    var CategoriesUiState by mutableStateOf(MealsCategoriesUiState(emptyList()))
+class MealsViewModel(private val repository: MealsRepository = MealsRepository()): ViewModel() {
+    var MealsUiState by mutableStateOf(MealsUiState(emptyList()))
      private set
 
-    fun getCategories() {
-        CategoriesUiState = MealsCategoriesUiState(emptyList(), loading = true)
+    fun getmeals() {
+        MealsUiState = MealsUiState(emptyList(), loading = true)
         viewModelScope.launch {
-            CategoriesUiState = MealsCategoriesUiState(
-                Categories = repository.getCategories().Categories,
+            MealsUiState = MealsUiState(
+                Categories = repository.getMeals().Meals,
                 loading = false
             )
         }

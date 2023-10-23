@@ -22,14 +22,12 @@ fun AppBar(title: String, navController: NavController) {
         colors = TopAppBarDefaults.smallTopAppBarColors(containerColor = Color(0xFF6650a4) ),
         navigationIcon = {
             if (navController.previousBackStackEntry != null) {
-                run {
-                    IconButton(onClick = { navController.navigateUp() }) {
-                        Icon(imageVector = Icons.Filled.ArrowBack,
+                IconButton(onClick = { navController.navigateUp() }) {
+                    Icon(imageVector = Icons.Filled.ArrowBack,
                             contentDescription = null)
                     }
                 }
-            } else {
-                null
             }
-        })
+        }
+    )
 }

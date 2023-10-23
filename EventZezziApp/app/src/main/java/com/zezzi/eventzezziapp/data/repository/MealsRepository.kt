@@ -6,9 +6,20 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
 class MealsRepository(private val webService: MealsWebService = MealsWebService()) {
-    suspend fun getMeals(): MealsCategoriesResponse {
+    suspend fun getCategories(): MealsCategoriesResponse {
         return withContext(Dispatchers.IO) {
             webService.getMeals()
         }
     }
+    suspend fun getMeals(): MealsResponse {
+        return withContext(Dispatchers.IO) {
+            webService.getmeals()
+        }
+    }
+    suspend fun getRecipes(): RecipesResponse {
+        return withContext(Dispatchers.IO) {
+            webService.getRecipes()
+        }
+    }
 }
+
